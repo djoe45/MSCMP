@@ -48,12 +48,14 @@ namespace MSCMP.Network {
 		enum AnimationId {
 			Walk,
 			Standing,
+            GetIntoCar
 		}
 
 		private string[] AnimationNames = new string[] {
 			"fat_walk",
-			"fat_standing"
-		};
+			"fat_standing",
+            "fat_get_car_in"
+        };
 
 		/// <summary>
 		/// Currently played animation id.
@@ -360,7 +362,10 @@ namespace MSCMP.Network {
 			// Set state of the player.
 
 			SwitchState(passenger ? State.Passenger : State.DrivingVehicle);
-		}
+
+            // Play seated animation
+            PlayAnimation(AnimationId.GetIntoCar);
+        }
 
 		/// <summary>
 		/// Leave vehicle player is currently sitting in.
