@@ -48,13 +48,15 @@ namespace MSCMP.Network {
 		enum AnimationId {
 			Walk,
 			Standing,
-            GetIntoCar
+            GetIntoCar,
+            GetOutCar
 		}
 
 		private string[] AnimationNames = new string[] {
 			"fat_walk",
 			"fat_standing",
-            "fat_get_car_in"
+            "fat_get_car_in",
+            "fat_get_car_out"
         };
 
 		/// <summary>
@@ -389,7 +391,10 @@ namespace MSCMP.Network {
 			// Set state of the player.
 
 			SwitchState(State.OnFoot);
-		}
+
+            // Play seated animation
+            PlayAnimation(AnimationId.GetOutCar);
+        }
 
 		/// <summary>
 		/// Switches state of this player.
